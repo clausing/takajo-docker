@@ -1,16 +1,17 @@
-FROM debian:stable-slim
+FROM debian:bookworm-slim
 
-LABEL maintainer "Jim Clausing, jclausing@isc.sans.edu"
-LABEL version="takajo 2.5.0"
+LABEL maintainer="Jim Clausing, jclausing@isc.sans.edu"
+LABEL version="takajo 2.11.0"
 LABEL description="Run takajo in a docker container"
 
 WORKDIR /app
 
 RUN apt update && \
-    apt install wget unzip libpcre3 libcurl4 -y && \
+    apt install wget unzip libpcre3 libsqlite3-0 libcurl4 -y && \
     apt clean && \
-    wget https://github.com/Yamato-Security/takajo/releases/download/v2.5.0/takajo-2.5.0-linux.zip && \
+    wget https://github.com/Yamato-Security/takajo/releases/download/v2.11.0/takajo-2.11.0-lin-x64-gnu.zip && \
     unzip takajo*.zip && \
+    ln takajo-*-gnu takajo && \
     chmod a+x /app/takajo && \
     rm -vf *.tar.gz *.zip
 
