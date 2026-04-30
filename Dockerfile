@@ -9,7 +9,7 @@ WORKDIR /app
 RUN apt update && \
     apt install wget unzip libpcre3 libsqlite3-0 libcurl4 -y && \
     apt clean && \
-    wget https://github.com/duckdb/duckdb/releases/download/v1.5.1/libduckdb-linux-amd64.zip && \
+    wget https://github.com/duckdb/duckdb/releases/download/v1.4.4/libduckdb-linux-amd64.zip && \
     unzip libduckdb-linux-amd64.zip -d libduckdb && \
     mv libduckdb/libduckdb.so /usr/local/lib/ && \
     ldconfig && \
