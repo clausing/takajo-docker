@@ -1,7 +1,7 @@
 FROM debian:bookworm-slim
 
 LABEL maintainer="Jim Clausing, jclausing@isc.sans.edu"
-LABEL version="takajo 2.16.0"
+LABEL version="takajo 2.16.1"
 LABEL description="Run takajo in a docker container"
 
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN apt update && \
     mv libduckdb/libduckdb.so /usr/local/lib/ && \
     ldconfig && \
     rm -rvf libduckdb* && \
-    wget https://github.com/Yamato-Security/takajo/releases/download/v2.16.0/takajo-2.16.0-lin-x64-gnu.zip && \
+    wget https://github.com/Yamato-Security/takajo/releases/download/v2.16.1/takajo-2.16.1-lin-x64-gnu.zip && \
     unzip takajo*.zip && \
     ln takajo-*-gnu takajo && \
     chmod a+x /app/takajo && \
